@@ -1,5 +1,4 @@
-# goal
-- build maze builder / solver using python and tkinter
+goal: build maze builder / solver using python and tkinter
 
 # structure
 
@@ -62,5 +61,8 @@
         - break entrance exit
         - break walls
         - reset visited cells
-        - solve: this is a function called by users (the inn keeper)
+        - solve: this is a function called by users (the inn keeper) (we gotta figure out how to do this)
         - _solve_r(): this is a helper function that does the real math (the chef)
+
+- questions:
+    - whats the best way to handle mutliple levels of objects that need references to higher level things? Sometimes I find that rendering code makes sense if it lives inside the smaller class, but it makes for tight coupling. I know it doesn't really matter with respect to such a small project, but how might it be done?
