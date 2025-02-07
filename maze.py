@@ -1,5 +1,6 @@
 from grid_elements import Line, Point
 import time
+import random
 
 class Cell():
     def __init__(self, point, width = 50):
@@ -7,6 +8,8 @@ class Cell():
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
+
+        self.visted = False
         
         self.width = width
 
@@ -69,7 +72,7 @@ class Cell():
         pass
 
 class Maze():
-    def __init__(self, x1, y1, num_rows, num_cols, cell_size, win):
+    def __init__(self, x1, y1, num_rows, num_cols, cell_size, win, seed = None):
         self.x1 = x1
         self.y1 = y1
         self.num_rows = num_rows
@@ -77,6 +80,9 @@ class Maze():
         self.cell_size = cell_size
         self.win = win
         self.canvas = win.canvas
+
+        if seed != None:
+            random.seed(seed)
 
         self.create_cells()
         self.break_entrance_and_exit()
@@ -107,9 +113,24 @@ class Maze():
     def break_entrance_and_exit(self):
         self.cells[0][0].has_left_wall = False
         self.cells[self.num_cols-1][self.num_rows-1].has_right_wall = False
-
+        self.draw_cells()
         
     def animate(self):
         self.win.redraw()
         time.sleep(.05)
         
+    def break_walls_r(self):
+        '''
+        starting cell, 
+        '''
+        '''
+        mark cell visted
+        loop
+        - create a list to hold the xy values that you need to visit
+        - check cells that are adacent to current cell, keep track of any that hae NOT been visted
+        - if there are zero directions to go, draw the current cell and return
+        - else, pick a random direction
+        - knock down the walls between the current cell and chosen cell
+        move to the chosen cell by calling break walls
+        '''
+        pass
