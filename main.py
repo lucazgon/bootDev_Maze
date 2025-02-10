@@ -26,6 +26,7 @@ def test_cells(win):
 
 def test_maze(win):
     maze_a = Maze(200,100,5,5,50,win)
+
 def main():
     win = Window(800,600)
     
@@ -33,7 +34,6 @@ def main():
     # test_lines(win)
     # test_cells(win)
     test_maze(win)
-
     win.wait_for_close()
 
 if __name__ == "__main__":
